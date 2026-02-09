@@ -41,8 +41,8 @@ public class BibliotecaApp {
     }
 
     // ====== CRUD (por implementar) ======
-    static void registrarPrestamo() { /* TODO */ }
-    static void mostrarPrestamos() { /* TODO */ }
+   
+
     static void buscarPrestamoPorId() { /* TODO */ }
     static void actualizarPrestamo() { /* TODO */ }
     static void eliminarPrestamo() { /* TODO */ }
@@ -66,7 +66,7 @@ public class BibliotecaApp {
         System.out.print(msg);
         return sc.nextLine().trim();
     }
-}
+    
 // opcion 1
 static void registrarPrestamo() {
     int id = leerEntero("ID del préstamo: ");
@@ -107,4 +107,5 @@ static void mostrarPrestamos() {
             + " | Multa/día: $" + prestamo.get(4)
         );
     }
+}
 }
