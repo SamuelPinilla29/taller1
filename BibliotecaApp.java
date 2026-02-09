@@ -45,11 +45,47 @@ public class BibliotecaApp {
     static void mostrarPrestamos() { /* TODO */ }
     static void buscarPrestamoPorId() { /* TODO */ }
     static void actualizarPrestamo() { /* TODO */ }
-    static void eliminarPrestamo() { /* TODO */ }
+    // opción 5: eliminar prestamo
+    static void eliminarPrestamo() {
+        if (prestamos.isEmpty()) {
+            System.out.println("No hay préstamos registrados.");
+            return;
+        }
 
-    // ====== Cálculo (por implementar) ======
-    static void calcularTotalMultas() { /* TODO */ }
+        int id = leerEntero("Ingrese el ID del préstamo a eliminar: ");
+        boolean eliminado = false;
 
+        for (int i = 0; i < prestamos.size(); i++) {
+            if ((int) prestamos.get(i).get(0) == id) {
+                prestamos.remove(i);
+                eliminado = true;
+                System.out.println("Préstamo eliminado correctamente.");
+                break;
+            }
+        }
+
+        if (!eliminado) {
+            System.out.println("No se encontró un préstamo con ese ID.");
+        }
+    }
+
+    // opcion 6: calcular total de multas
+    static void calcularTotalMultas() {
+        if (prestamos.isEmpty()) {
+            System.out.println("No hay préstamos registrados.");
+            return;
+        }
+
+        double totalMultas = 0;
+
+        for (ArrayList<Object> prestamo : prestamos) {
+            int dias = (int) prestamo.get(3);
+            double multaPorDia = (double) prestamo.get(4);
+            totalMultas += dias * multaPorDia;
+        }
+
+        System.out.println("Total acumulado de multas: $" + totalMultas);
+    }
     // ====== Utilidades mínimas ======
     static int leerEntero(String msg) {
         while (true) {
